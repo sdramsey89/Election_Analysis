@@ -21,8 +21,11 @@ Winning Vote Count: 272,892
 Winning Percentage: 73.8%
 
 ### Election-Audit Summary
-The great thing about this script is that it could be run for any other election as long as the data is provided in this same format. Since the script checks for candidate names and counties (instead of these items being hardcoded) the commmision could easily utilize it for future elections.
-`# Get the candidate name from each row.
+The great thing about this script is that it could be run for any other election as long as the data is provided in this same format. Since the script checks for candidate names and counties (instead of these items being hardcoded) the commmision could easily utilize it for future elections.<br>
+
+**Code snippet adding candidates.**
+   
+        # Get the candidate name from each row.
         candidate_name = row[2]
         # 3: Extract the county name from each row.
         county_name = row[1]
@@ -30,14 +33,17 @@ The great thing about this script is that it could be run for any other election
         # the candidate list
         if candidate_name not in candidate_options:
             # Add the candidate name to the candidate list.
-            candidate_options.append(candidate_name)`
-`# 4a: Write an if statement that checks that the
+            candidate_options.append(candidate_name)
+
+**Code snippet adding counties.**
+
+        # 4a: Write an if statement that checks that the
         # county does not match any existing county in the county list.
         if county_name not in counties:
             # 4b: Add the existing county to the list of counties.
             counties.append(county_name)`
 
-However, the script there are a couple areas where the script could be improved.
+However, there are a couple areas where the script could be improved.
 - One improvement would be to add have the script account for ties. Currently, the script is only able to declare one winner. In the event of a tie, the script would not be able to make this distinction and announce the need for a runoff vote.
 - Another improvement would be to add in the margin a candidate needs to win by in order to avoid a runoff elections. Depending on county rules, this might be a necessary addition. Currently, the script is designed to announce a winner as long as they have one more vote than the next highest candidate.
 I beleive these two additions will increase the value of the election audit script and make it more useful for the commission.
